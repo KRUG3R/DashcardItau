@@ -3,9 +3,6 @@ import socketserver
 from CORE import Usuario
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
-
-
-
 #EFETUA LOGIN --------------------------------------------------------------------------------
 def do_login(self):
     length = int(self.headers["Content-Length"])
@@ -66,16 +63,15 @@ def do_RessetPassword(self):
 
 #API ROUTER --------------------------------------------------------------------------------
 class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
+
     def do_GET(self):
-        if self.path.find('/RessetPassword') == 0:
+        if self.path == '/':
+            self.path = 'index.html'
+            return http.server.SimpleHTTPRequestHandler.do_GET(self)
+        elif self.path.find('/RessetPassword') == 0:
             do_RessetPassword(self)
         else:
-            self.send_response(404)
-            self.send_header("Content-type", "text/html")
-            self.end_headers()
-            mensagem = 'Desculpe, Não Encontrado.'
-            html = f"<html><head></head><body><h1>{mensagem}!</h1></body></html>"
-            self.wfile.write(bytes(html, "utf8"))
+            return http.server.SimpleHTTPRequestHandler.do_GET(self)
         return
 
     def do_POST(self):

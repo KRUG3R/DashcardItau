@@ -10,12 +10,22 @@ class Usuario:
     horarioSessao = ""
 
     def login(self, racf, senha):
-        #verifica se o usuário esá com acesso. Se não estiver, retorna "0"
+
+        #verifica se o usuário esá com acesso. Se não estiver, retorna "-1"
         usuariorepo = UsuarioREPO()
         val, campos = usuariorepo.LoginREPO(racf, senha)
         if val == -1:
             return 404
         else:
+            self.racf = campos['racf']
+            self.nome = campos['nome']
+            self.senha = campos['senha']
+            self.email = campos['email']
+            self.mudSenha = campos['precisaMudar']
+            self.nSessao = campos['sessao']
+            self.horarioSessao = campos['horaSess']
+            #TODO -> Verificar se precisa mudar a senha e gerar tela para mudar a senha
+            
             return 200
 
     def ResetPassword(self, email):
