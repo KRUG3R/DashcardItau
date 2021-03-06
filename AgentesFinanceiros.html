@@ -1,34 +1,48 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
         <title>DashCard System</title>
+        <script src="repository.js"></script>
+        <script>
+            var ListParceiro = ["Parceiro1", "Parceiro2","Parceiro3","Parceiro4","Parceiro5"]
+            var top10parceiro = [
+            { Parceiro: "Parceiro1", 'Volume Transacional': 1658 },
+            { Parceiro: "Parceiro2", 'Volume Transacional': 1654 },
+            { Parceiro: "Parceiro3", 'Volume Transacional': 1520 },
+            { Parceiro: "Parceiro4", 'Volume Transacional': 1592 },
+            { Parceiro: "Parceiro5", 'Volume Transacional': 1738 }
+            ];
 
+            function load() {
+                alert(getSession())
+            }
+
+
+
+        </script>
     </head>
-    <body>
+    <body onload="load()">
         <h1>DashCard System</h1>
         <hr>
-        foto Seu nome(RACF) [botão logout]
+        <table>
+            <tr>
+                <td>foto</td>
+                <td>Seu nome(RACF)</td>
+                <td>[botão logout]</td>
+            </tr>
+        </table>
         <br><br>
         <form action="/action_page.php">
             <label for="parceiro">Parceiro:</label>
-            <select id="cars" name="cars">
-              <option value="Parceiro1">Parceiro1</option>
-              <option value="Parceiro2">Parceiro2</option>
-              <option value="Parceiro3">Parceiro3</option>
-              <option value="Parceiro4">Parceiro4</option>
+            <select id="CBparceiro" name="parceiro">
             </select>
             <input type="submit">
         </form>
+        <br><br>
 
-        <table>
-            <tr>
-                <th>Parceiro</th>
-                <th>Volume Transacional</th>
-            </tr>
-            <tr>
-                <td>Parceiro1</td>
-                <td>Parceiro2</td>
-            </tr>
+        <table id="tabelaParceiros">
         </table>
-        <hr>
     </body>
+    <script src="build-table.js"></script>
 </html>

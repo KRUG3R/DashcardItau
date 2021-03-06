@@ -1,8 +1,10 @@
 import http.server
 import socketserver
 from CORE import Usuario
+from CORE import Parceiros
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
+
 #EFETUA LOGIN --------------------------------------------------------------------------------
 def do_login(self):
     length = int(self.headers["Content-Length"])
@@ -23,13 +25,11 @@ def do_login(self):
             passwrd = valor
     
     usuario = Usuario()
-    retorno = usuario.login(user, passwrd)
+    retorno , sessao = usuario.login(user, passwrd)
     if retorno == 200:
-        html = f"<html><head></head><body><h1>OK</h1></body></html>"
-        self.send_response(200)
-        self.send_header("Content-type", "text/html")
+        self.send_response(301)
+        self.send_header('Location', 'AgentesFinanceiros.html?sessionCode=' + sessao)
         self.end_headers()
-        self.wfile.write(bytes(html, "utf8"))
     else:
         html = f"<html><head></head><body><h1><red>Não OK!!!!!!!!!!</red></h1></body></html>"
         self.send_response(200)
@@ -37,7 +37,83 @@ def do_login(self):
         self.end_headers()
         self.wfile.write(bytes(html, "utf8"))
   
+#BUSCA CONSOLIDADO PARCEIROS ------------------------------------------------------------------
+def do_Parceiros(self):
+    sessao = ''
+    usuario = Usuario()
+    query_components = parse_qs(urlparse(self.path).query)
     
+    # Verifica se sessão é válida, se for reseta o tempo da sessao
+    if 'sessionCode' in query_components:
+        sessao = query_components['sessionCode'][0]
+
+    if sessao != '':
+        valida, campos = usuario.ValidaSessao(sessao)
+    else:
+        valida = 400
+        campos = {}
+    
+    # Se Validou sessão, Consulta informação de parceiros
+    if valida == 200:
+        parceiro = Parceiros()
+        listaAgentes, listaTOP10  = parceiro.getResumoParceiros()
+
+        saida ={
+            'usuario': campos,
+            'Agentes':listaAgentes,
+            'Top10': listaTOP10
+        }
+
+        html = str(saida)
+        self.send_response(200)
+        self.send_header("Content-type", "text/html")
+        self.end_headers()
+        self.wfile.write(bytes(html, "utf8"))
+
+    else:
+        html = f"<html><head></head><body>sessao expirada, faça login novamente </body></html>"
+        self.send_response(valida)
+        self.send_header("Content-type", "text/html")
+        self.end_headers()
+        self.wfile.write(bytes(html, "utf8"))
+
+#BUSCA DETALHE DO PARCEIROS--------------------------------
+def do_ParceiroDetalhe(self):
+    sessao = ''
+    parceiroID = ''
+    usuario = Usuario()
+
+    query_components = parse_qs(urlparse(self.path).query)
+    # Verifica se sessão é válida, se for reseta o tempo da sessao
+    if 'sessionCode' in query_components:
+        sessao = query_components['sessionCode'][0]
+    if 'parceiroID' in query_components:
+        parceiroID = query_components['parceiroID'][0]
+
+    if sessao != '' :
+        valida, campos = usuario.ValidaSessao(sessao)
+    else:
+        valida = 400
+        campos = {}
+    
+    # Se Validou sessão, Consulta informação de parceiros
+    if valida == 200:
+        parceiro = Parceiros()
+        dados  = parceiro.getDetalheParceiros(parceiroID)
+        html = str(dados)
+        self.send_response(200)
+        self.send_header("Content-type", "text/html")
+        self.end_headers()
+        self.wfile.write(bytes(html, "utf8"))
+
+    else:
+        html = f"<html><head></head><body>sessao expirada, faça login novamente </body></html>"
+        self.send_response(valida)
+        self.send_header("Content-type", "text/html")
+        self.end_headers()
+        self.wfile.write(bytes(html, "utf8"))            
+     
+   
 #REINICIA SENHA --------------------------------------------------------------------------------
 def do_RessetPassword(self):
     usuario = Usuario()
@@ -70,6 +146,10 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             return http.server.SimpleHTTPRequestHandler.do_GET(self)
         elif self.path.find('/RessetPassword') == 0:
             do_RessetPassword(self)
+        elif self.path.find('/parceiros') == 0:
+            do_Parceiros(self)
+        elif self.path.find('/parceiroDetalhe') == 0:
+            do_ParceiroDetalhe(self)
         else:
             return http.server.SimpleHTTPRequestHandler.do_GET(self)
         return

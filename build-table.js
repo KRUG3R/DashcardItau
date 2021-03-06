@@ -1,3 +1,5 @@
+
+
   function generateTableHead(table, data) {
     let thead = table.createTHead();
     let row = thead.insertRow();
@@ -8,7 +10,7 @@
       row.appendChild(th);
     }
   }
-  
+
   function generateTable(table, data) {
     for (let element of data) {
       let row = table.insertRow();
