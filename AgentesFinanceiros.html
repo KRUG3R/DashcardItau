@@ -5,6 +5,13 @@
         <title>DashCard System</title>
         <script src="repository.js"></script>
         <script>
+            let sessao = getSession();
+            let dados = httpGet(sessao)
+            function load() {
+                alert("sessao:::" + sessao)
+                alert("DADOS:::" +dados)
+            }
+
             var ListParceiro = ["Parceiro1", "Parceiro2","Parceiro3","Parceiro4","Parceiro5"]
             var top10parceiro = [
             { Parceiro: "Parceiro1", 'Volume Transacional': 1658 },
@@ -14,9 +21,6 @@
             { Parceiro: "Parceiro5", 'Volume Transacional': 1738 }
             ];
 
-            function load() {
-                alert(getSession())
-            }
 
 
 

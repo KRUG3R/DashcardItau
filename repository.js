@@ -2,8 +2,8 @@
   function httpGet(session)
   {
       var xmlHttp = new XMLHttpRequest();
-      let url = 'httpGet("localhost:8000/parceiros?sessionCode=' + session
-      xmlHttp.open( "GET",url , false );
+      var theUrl = 'http://localhost:8000/parceiros?sessionCode=' + session
+      xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
       xmlHttp.send( null );
       alert(xmlHttp.responseText);
       return xmlHttp.responseText;
