@@ -3,36 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>DashCard System</title>
-        <script src="repository.js"></script>
-        <script>
-            let sessao = getSession();
-            let dados = httpGet(sessao)
-            function load() {
-                alert("sessao:::" + sessao)
-                alert("DADOS:::" +dados)
-            }
-
-            var ListParceiro = ["Parceiro1", "Parceiro2","Parceiro3","Parceiro4","Parceiro5"]
-            var top10parceiro = [
-            { Parceiro: "Parceiro1", 'Volume Transacional': 1658 },
-            { Parceiro: "Parceiro2", 'Volume Transacional': 1654 },
-            { Parceiro: "Parceiro3", 'Volume Transacional': 1520 },
-            { Parceiro: "Parceiro4", 'Volume Transacional': 1592 },
-            { Parceiro: "Parceiro5", 'Volume Transacional': 1738 }
-            ];
-
-
-
-
-        </script>
     </head>
-    <body onload="load()">
+    <body">
         <h1>DashCard System</h1>
         <hr>
         <table>
             <tr>
-                <td>foto</td>
-                <td>Seu nome(RACF)</td>
+                <td><img id="foto" src="https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/ccjc/noticias/ccjc-aprova-anonimato-de-quem-fizer-denuncia-ao-tcu/image_mini" width="107" height="98"></td>
+                <td id="nome">Seu nome(RACF)</td>
                 <td>[botão logout]</td>
             </tr>
         </table>
@@ -40,6 +18,7 @@
         <form action="/action_page.php">
             <label for="parceiro">Parceiro:</label>
             <select id="CBparceiro" name="parceiro">
+                <option value=0></option>
             </select>
             <input type="submit">
         </form>
@@ -48,5 +27,6 @@
         <table id="tabelaParceiros">
         </table>
     </body>
-    <script src="build-table.js"></script>
+    <script src="repository.js"></script>
+    
 </html>

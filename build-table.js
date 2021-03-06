@@ -30,6 +30,15 @@
       select.add(option, 0);
     }
   }
+  function atualizaNome(nome) {
+    alert(nome);
+    document.getElementById("nome").textContent = nome; 
+  }
+
+
+
+
+
 
   let table = document.getElementById("tabelaParceiros");
   let data = Object.keys(top10parceiro[0]);
@@ -38,3 +47,10 @@
   
   let select = document.getElementById("CBparceiro");
   generateSelect(select, ListParceiro);
+
+
+  
+  let sessao = getSession();
+  let dados = httpGetAgentesFin(sessao);
+  let nome = dados['usuario']['nome'] + "(" + dados['usuario']['racf']+ ")";
+  atualizaNome(nome);
