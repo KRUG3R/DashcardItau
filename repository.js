@@ -5,9 +5,11 @@
       var theUrl = 'http://localhost:8000/parceiros?sessionCode=' + session
       xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
       xmlHttp.send( null );
+      if(xmlHttp.status!=200){
+        window.location.replace("http://localhost:8000/?msg=SessaoExpirada");
+      }
       var dadosJson = JSON.parse(xmlHttp.responseText.replaceAll(/'/g,'"'));
       return dadosJson;
-      
   }
 
   function getSession() {
@@ -16,9 +18,10 @@
     return session;
 }
 
-function atualizaNomeFoto(nome,foto) {
+function atualizaNomeFoto(nome,foto,sessao) {
   document.getElementById("nome").textContent = nome; 
   document.getElementById("foto").src = foto; 
+  document.getElementById("sessionCode").value=sessao;
 }
 
 function geraComboBox(data) {
@@ -62,7 +65,7 @@ let dados = httpGetAgentesFin(sessao);
 
 let nome = dados['usuario']['nome'] + "(" + dados['usuario']['racf']+ ")";
 let foto = dados['usuario']['urlFoto'];
-atualizaNomeFoto(nome,foto);
+atualizaNomeFoto(nome,foto,sessao);
 
 dadosCB = dados['Agentes'];
 geraComboBox(dadosCB);

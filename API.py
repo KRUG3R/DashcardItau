@@ -31,7 +31,10 @@ def do_login(self):
         self.send_header('Location', 'AgentesFinanceiros.html?sessionCode=' + sessao)
         self.end_headers()
     else:
-        html = f"<html><head></head><body><h1><red>Não OK!!!!!!!!!!</red></h1></body></html>"
+        self.send_response(301)
+        self.send_header('Location', 'http://localhost:8000/?msg=SenhaInvalida')
+        self.end_headers()
+        html = f"http://localhost:8000/?SessaoExpirada"
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()

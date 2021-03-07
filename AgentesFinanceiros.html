@@ -11,11 +11,12 @@
             <tr>
                 <td><img id="foto" src="https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/ccjc/noticias/ccjc-aprova-anonimato-de-quem-fizer-denuncia-ao-tcu/image_mini" width="107" height="98"></td>
                 <td id="nome">Seu nome(RACF)</td>
-                <td>[botão logout]</td>
+                <td><input type="button" value="Logout"></td>
             </tr>
         </table>
         <br><br>
-        <form action="/action_page.php">
+        <form action="DashAgente.html">
+            <input type="hidden" id="sessionCode" name="sessionCode" value="">
             <label for="parceiro">Parceiro:</label>
             <select id="CBparceiro" name="parceiro">
                 <option value=0></option>
