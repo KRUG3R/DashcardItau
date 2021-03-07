@@ -1,9 +1,11 @@
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>Login</title>
-
+        <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
     </head>
-    <body>
+    <body><center>
+        <div id="fundo">
         <h1>Sign In</h1>
         <hr>
         <form action="http://localhost:8000/login" method="POST">
@@ -13,5 +15,13 @@
         </form>
         <a href="ResetarSenha.html">Forgot Password?</a>
         <hr>
+        <div id="senhaIncorreta" style="visibility:hidden;">
+            Usuário ou senha incorretos
+        </div>
+        <div id="sessaoExpirada" style="visibility:hidden;">
+            Sessão expirada. Por favor, faça login novamente.
+        </div>
+    </div></center>
     </body>
+    <script src="inicial.js"></script>
 </html>

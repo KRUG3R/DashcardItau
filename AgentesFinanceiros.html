@@ -3,31 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <title>DashCard System</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet2.css" media="screen" />
     </head>
-    <body">
+    <body> <center><div id="fundo">
         <h1>DashCard System</h1>
         <hr>
-        <table>
+        <table id="table1">
             <tr>
                 <td><img id="foto" src="https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/ccjc/noticias/ccjc-aprova-anonimato-de-quem-fizer-denuncia-ao-tcu/image_mini" width="107" height="98"></td>
                 <td id="nome">Seu nome(RACF)</td>
-                <td><input type="button" value="Logout"></td>
+                <td><form action="index.html"><input type="submit" value="Logout"></form></td></td>
             </tr>
         </table>
-        <br><br>
+        <br><hr><br>
         <form action="DashAgente.html">
             <input type="hidden" id="sessionCode" name="sessionCode" value="">
             <label for="parceiro">Parceiro:</label>
             <select id="CBparceiro" name="parceiro">
                 <option value=0></option>
             </select>
-            <input type="submit">
-        </form>
-        <br><br>
-
+            <input type="submit" value="+Detalhe">
+        </form><br>
+        <hr>
+        <br>Top 10 Parceiros<br>
+        
         <table id="tabelaParceiros">
         </table>
-    </body>
+        <br><br><br><br><br>
+    </div></center></body>  
     <script src="repository.js"></script>
     
 </html>

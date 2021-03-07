@@ -2,62 +2,33 @@
 <head>
     <meta charset="UTF-8">
     <title>DashCard System</title>
-    <style>
-        div {
-
-            border-style: solid;
-            display: inline-block;
-	        text-align: center;
-            vertical-align: middle;
-            
-        }
-        #caixa1 {
-            width: 380px;
-            height: 100px;
-            border-radius: 20px;
-            border-width: 2px;
-            border-color: black;
-        }
-        #caixa2 {
-            position: relative;
-            top: -15px;
-            left: -120px;
-            width: 100px;
-            height: 35px;
-            background-color: blue;
-            color: white;
-            border-radius: 10px;
-            font-size: 25;
-        }
-        .sucesso, .falhas, .fraudes{ 
-             font-size: 40;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="stylesheet3.css" media="screen" />
 </head>
 <body>
-   
-    <h1>DashCard System</h1>
-    <br>
-    <div id="caixa1">
-        <div id="caixa2">Parceiros</div><br>
-        <span id="nome" class="nome">Nome do Parceiro / Volume de transação</span>
-    </div><br><br><br>
-    
-    <div id="caixa1">
-        <div id="caixa2">Sucesso</div><br>
-        <span id="sucesso" class="sucesso">000</span>
-    </div><br><br><br>
-    
-    <div id="caixa1">
-        <div id="caixa2">Falhas</div><br>
-        <span id="falhas" class="falhas">000</span>
-    </div><br><br><br>
-    
-    <div id="caixa1">
-        <div id="caixa2">Fraudes</div><br>
-        <span id = "fraudes"class="fraudes">000</span>
-    </div><br><br><br>
+    <center>
+        <div id="fundo">
+            <h1>DashCard System</h1> <br>
+            <div id="caixa1">
+                <div id="caixa2">Parceiros</div><br>
+                <span id="nome" class="nome">Nome do Parceiro / Volume de transação</span>
+            </div><br><br><br>
+            
+            <div id="caixa1">
+                <div id="caixa2">Sucesso</div><br>
+                <span id="sucesso" class="sucesso">000</span>
+            </div><br><br><br>
+            
+            <div id="caixa1">
+                <div id="caixa2">Falhas</div><br>
+                <span id="falhas" class="falhas">000</span>
+            </div><br><br><br>
+            
+            <div id="caixa1">
+                <div id="caixa2">Fraudes</div><br>
+                <span id = "fraudes"class="fraudes">000</span>
+            </div><br><br><br>
+        </div>
+    </center>
 </body>
 <script src="repositoryDet.js"></script>
 </html>

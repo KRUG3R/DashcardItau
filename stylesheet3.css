@@ -1,0 +1,35 @@
+div {
+    
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#fundo {
+    width: 500px;
+    background-color: rgb(222, 225, 236);
+    font-family: Arial, Helvetica, sans-serif;
+}
+#caixa1 {
+    width: 380px;
+    height: 100px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    background-color: white;
+}
+#caixa2 {
+    position: relative;
+    top: -15px;
+    left: -120px;
+    width: 120px;
+    height: 35px;
+    background-color: darkblue;
+    color: white;
+    border-radius: 10px;
+    font-size: 24;
+}
+.sucesso, .falhas, .fraudes{ 
+        font-size: 40;
+}

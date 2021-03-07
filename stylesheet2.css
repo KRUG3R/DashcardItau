@@ -1,0 +1,46 @@
+div {
+    
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+table {
+    
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+th {
+    background-color: darkblue;
+    color: white;
+  }
+
+  #tabelaParceiros{
+    background-color: white;
+    display: table;
+    width: 100%;
+  }
+
+  #tabelaParceiros tr:nth-child(even) {background-color: rgb(195, 192, 241);}
+  #tabelaParceiros tr:nth-child(even) {background-color: rgb(195, 192, 241);}
+
+#table1{
+
+    width: 500px;
+}   
+#nome{
+
+    width: 340px;
+}  
+#fundo {
+    width: 500px;
+    height: 100%;
+    background-color:rgb(222, 225, 236);
+    text-align: center;
+    vertical-align: middle;
+}

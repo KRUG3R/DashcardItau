@@ -1,0 +1,27 @@
+div {
+    
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#fundo {
+    width: 500px;
+    height: 100%;
+    background-color:rgb(222, 225, 236);
+    text-align: center;
+    vertical-align: middle;
+}
+#sessaoExpirada, #senhaIncorreta {
+    width: 500px;
+    height: 20px;
+    background-color:rgb(238, 162, 162);
+    color: red;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+}
