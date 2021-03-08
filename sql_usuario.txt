@@ -1,13 +1,1 @@
-create table Usuario(
-	racf char(8) primary key,
-    nome varchar(40),
-    senha varchar(40),
-    email varchar(40),
-    precisaMudar boolean,
-    sessao varchar(40),
-    horaSess timestamp,
-    urlFoto varchar(500)
-);
-
-insert into usuario (racf, nome, senha, email, precisaMudar, sessao, horaSess, urlFoto)
-values ("KRUGERL","LUIZ FILIPE K OLIVEIRA",SHA1("Senha123!@#"),"luizfilipekruger@gmail.com", false, MD5(concat(racf, current_timestamp)), current_timestamp, "https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/ccjc/noticias/ccjc-aprova-anonimato-de-quem-fizer-denuncia-ao-tcu/image_mini");
+https://5loarm486l.execute-api.us-east-1.amazonaws.com/dev/usuario/logon
