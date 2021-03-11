@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <!--<script src="../JS/dashcard_home.js"></script>-->
-    <link rel="stylesheet" href="../CSS/dashcard_home.css">
+    <link rel="stylesheet" href="../CSS/dashcard_detalhe.css">
     <title>Dashcard System - home</title>
   </head>
   <body>
     <!--Barra de Navegação-->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Dashcard
+        <a class="navbar-brand" href="dashcard.html">Dashcard
             <img src="../IMG/CardIcon.png" width="30" height="30">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,41 +57,53 @@
             <div class="col-lg-3 col-md-4 div1 bg-dark text-white" >
                 <div class="row">
                     <div class="col">
-                        <br>
-                        Detalhes do agente Parceiro:
-                        <br>
-                        <div class="input-group">
-                            <select class="custom-select" id="CBparceiro" aria-label="Selecione um Agente Financeiro:">
-                            <option selected></option>
-                            </select>
-                            <div class="input-group-append">
-                            <button class="btn btn-outline-light" type="button" onclick="detalhe()">Acessar</button>
-                            </div>
-                        </div>
-                        <br>
+
+                
+                        <h1 class="display-4"><span id="nomeAgt"></span></h1>
+              
+
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                         <center>Top10</center> 
-                         <table id="tabelaParceiros" class="table table-sm table-dark">
-                            
-                          </table>
-
-
+                      <div class="alert alert-light" role="alert">
+                        Volume Transacional: <strong><span id="vTrans"></span></strong>
+                      </div>
 
                      </div>
                 </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="alert alert-success" role="alert">
+                      Sucesso: <strong><span id="vSucesso"></span></strong>
+                    </div>
+
+                   </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="alert alert-warning" role="alert">
+                    Falhas: <strong> <span id="vFalhas"></span></strong>
+                  </div>
+
+                 </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="alert alert-danger" role="alert">
+                  Fraudes: <strong><span id="vFraudes"></span></strong>
+                </div>
+
+               </div>
+          </div>
 
 
 
             </div>
             <!--Meio da página com gráficos-->
             <div class="col-lg-9 col-md-8 div2 bg-light text-dark" >
-             <!------------------------------------------------------------------------------->
-
-              Gráficos...
-             <!------------------------------------------------------------------------------->
+             gráficos...
 
 
 
@@ -102,7 +114,7 @@
     </div>
 
 
-    <script src="../JS/dashcard_home.js"></script>
+    <script src="../JS/dashcard_detalhe.js"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 <br><br>
